@@ -71,7 +71,7 @@ public class YoutubeActivity extends YouTubeBaseActivity
     private YouTubePlayer.PlaybackEventListener playbackEventListener = new YouTubePlayer.PlaybackEventListener() {
         @Override
         public void onPlaying() {
-            
+
         }
 
         @Override
@@ -124,5 +124,5 @@ public class YoutubeActivity extends YouTubeBaseActivity
         public void onError(YouTubePlayer.ErrorReason errorReason) {
 
         }
-    }
+    };
 }
