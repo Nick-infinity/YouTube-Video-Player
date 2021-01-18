@@ -1,6 +1,7 @@
 package com.nickinfinity.youtubeplayer;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ import com.google.android.youtube.player.YouTubePlayerView;
 
 public class YoutubeActivity extends YouTubeBaseActivity
         implements YouTubePlayer.OnInitializedListener {
+    private static final String TAG = "YoutubeActivity";
     static final String GOOGLE_API_KEY = "AIzaSyC3L0kFoJ_GJ08Sojpbf2RUh4r3UnjIxcc";
     static final String YT_VIDEO_ID = "M7XM597XO94";
     static final String YT_PLAYLIST = "PLJ7A97yl9oXqruomJvjLeeK-8hvjUL4V2";
@@ -39,7 +41,13 @@ public class YoutubeActivity extends YouTubeBaseActivity
     }
 
     @Override
-    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean wasRestored) {
+        Log.d(TAG, "onInitializationSuccess: provide is "+provider.getClass().toString());
+        Toast.makeText(this,"YoutubePlayer Initialized Successsfuly",Toast.LENGTH_SHORT).show();
+
+        if(!wasRestored){
+            youTubePlayer.cueVideo(YT_VIDEO_ID);
+        }
 
     }
 
