@@ -20,13 +20,13 @@ public class YoutubeActivity extends YouTubeBaseActivity
 
         // Inflating views using java code instead of xml
         // Dynamically
-        ConstraintLayout layout = getLayoutInflater().inflate(R.layout.activity_youtube);
+        ConstraintLayout layout = (ConstraintLayout) getLayoutInflater().inflate(R.layout.activity_youtube,null);
         setContentView(layout);
 
         YouTubePlayerView player = new YouTubePlayerView(this); // passing the context in every dynamically created view is imp
         player.setLayoutParams(new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
 
-        // adding the Yuutube Player View to layout file
+        // adding the Youtube Player View to layout file
         layout.addView(player);
     }
 
